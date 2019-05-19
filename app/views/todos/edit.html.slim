@@ -1,0 +1,6 @@
+h1 課題の編集
+
+.nav.justify-content-end
+  = link_to '一覧', todos_path, class: 'nav-link'
+
+= render partial: 'form', locals: { todo: @todo }

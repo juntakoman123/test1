@@ -1,0 +1,24 @@
+h1 課題詳細
+
+.nav.justify-content-end
+  = link_to '一覧', todos_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= "id"
+      td= @todo.id
+    tr
+      th= "名前"
+      td= @todo.name
+    tr
+      th= "説明"
+      td= simple_format(h(@todo.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= "作成日時"
+      td= @todo.created_at
+    tr
+      th= "更新日時"
+      td= @todo.updated_at
+
+= link_to '編集', edit_todo_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @todo, method: :delete, data: { confirm: "タスク「#{@todo.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
